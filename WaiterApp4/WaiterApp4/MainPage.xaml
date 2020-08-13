@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:WaiterApp4.Pages"
+             mc:Ignorable="d"
+             x:Class="WaiterApp4.MainPage">
+  <!--Pages can be added as references or inline-->
+    <TabbedPage.Children>
+        <!--Tables-->
+        <NavigationPage Title="Tables">
+            <x:Arguments>
+                <pages:TablesPage />
+            </x:Arguments>
+        </NavigationPage>
+        <!--Menu-->
+        <NavigationPage Title="Menu">
+            <x:Arguments>
+                <pages:MenuPage/>
+            </x:Arguments>
+        </NavigationPage>
+        <!--Favorites-->
+        <NavigationPage Title="Favorites">
+
+        </NavigationPage>
+    </TabbedPage.Children>
+</TabbedPage>

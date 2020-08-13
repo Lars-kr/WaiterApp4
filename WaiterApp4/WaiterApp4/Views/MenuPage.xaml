@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:WaiterApp4.ViewModels"
+             mc:Ignorable="d"
+             x:Class="WaiterApp4.Pages.MenuPage">
+
+    <ContentPage.BindingContext>
+        <local:MenuViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding MenuCol}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Margin="5">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="3" HorizontalItemSpacing="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="LightSteelBlue" HeightRequest="180" VerticalOptions="StartAndExpand">
+                            <Label
+                            Text="{Binding Name}"
+                            FontAttributes="Bold"
+                            FontSize="24"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Center"/>
+                            <Image
+                            Source="{Binding Image}"
+                            Aspect="AspectFill"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="StartAndExpand"/>
+                            <Label
+                            Text="{Binding Price}"
+                            FontAttributes="Italic"
+                            FontSize="20"
+                            VerticalOptions="End"
+                            HorizontalOptions="End"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout x:Name="Footer" >
+                <Button Text="ORDER" FontSize="36" BackgroundColor="Blue" VerticalOptions="FillAndExpand"  HeightRequest="80" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
