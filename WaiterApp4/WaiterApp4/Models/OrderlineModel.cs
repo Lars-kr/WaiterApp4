@@ -13,7 +13,7 @@ namespace WaiterApp4.Models
 
         public string FullOrderline
         {
-            get { return string.Format("{0}x {1} {2}", Number, Name, (Double.Parse(Price) * Int32.Parse(Number)).ToString()); }
+            get { return string.Format("{0}x {1} .... {2}", Number, Name, (Double.Parse(Price) * Int32.Parse(Number)).ToString()) + "kr"; }
         }
     }
 }

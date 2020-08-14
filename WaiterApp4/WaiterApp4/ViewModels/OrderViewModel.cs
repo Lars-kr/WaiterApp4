@@ -14,9 +14,10 @@ namespace WaiterApp4.ViewModels
     public class OrderViewModel : ContentView
     {
 
-        ObservableCollection<OrderModel> Order = new ObservableCollection<OrderModel>();
-        //public ObservableCollection<OrderlineModel> Order{ get { return orderlines; } }
-        List<OrderlineModel> los = new List<OrderlineModel>();
+        //public IList<OrderModel> Order { get; } = new ObservableCollection<OrderModel>();
+        public IList<OrderlineModel> Order { get; } = new ObservableCollection<OrderlineModel>();
+
+        //List<OrderlineModel> los = new List<OrderlineModel>();
         public OrderViewModel()
         {
             FillOrder();
@@ -26,13 +27,13 @@ namespace WaiterApp4.ViewModels
         {
 
 
-            los.Add(new OrderlineModel
+            Order.Add(new OrderlineModel
             {
                 Number = "5",
                 Price = "14.34",
                 Name = "Pepsi"
             });
-            los.Add(new OrderlineModel
+            Order.Add(new OrderlineModel
             {
                 Number = "4",
                 Price = "13.34",
@@ -43,10 +44,10 @@ namespace WaiterApp4.ViewModels
             OrderModel orderM = new OrderModel
             {
                 Number = "1405",
-                Orderlines = los,
+               // Orderlines = los,
                 OrderDateTime = DateTime.Now.ToString()
             };
-            Order.Add(orderM);
+            //Order = los;
         }
       
 

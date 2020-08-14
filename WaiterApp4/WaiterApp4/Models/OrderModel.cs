@@ -17,7 +17,7 @@ namespace WaiterApp4.Models
             get { return string.Format("Ordernumber: {0}", Number);}
         }
 
-
+        
     }
    
 }

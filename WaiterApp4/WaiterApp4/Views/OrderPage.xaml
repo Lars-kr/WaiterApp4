@@ -11,6 +11,7 @@
     <ContentPage.BindingContext>
         <local:OrderViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout>
             <StackLayout VerticalOptions="StartAndExpand">
@@ -24,36 +25,35 @@
                            HeightRequest="40"
                            />
                 </StackLayout>
+                <!--<CollectionView ItemsSource="{Binding Order}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" VerticalItemSpacing="3" HorizontalItemSpacing="2"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="LightSteelBlue" HeightRequest="36" VerticalOptions="StartAndExpand">
+                                <Label Text="{Binding Number}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>-->
                 <StackLayout>
-                    <CollectionView ItemsSource="{Binding Order}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Margin="5">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="3" HorizontalItemSpacing="2" />
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
+                    
+                    <ListView ItemsSource="{Binding Order} ">
+                        <ListView.Header>
+                            <StackLayout>
+                                <Label Text="Ordernumber"/>  <!-- bind to a orderNumber property -->
+                            </StackLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate >
                             <DataTemplate>
-                                <StackLayout BackgroundColor="LightSteelBlue" HeightRequest="180" VerticalOptions="StartAndExpand">
-                                    <Label
-                                        Text="{Binding Name}"
-                                        FontAttributes="Bold"
-                                        FontSize="24"
-                                        VerticalOptions="Start"
-                                        HorizontalOptions="Center"/>
-                                </StackLayout>
+                                
+                                <TextCell Text="{Binding FullOrderline}" TextColor="Black" />
                             </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                    <StackLayout>
-                        <ListView ItemsSource="{Binding Order:Orderlines}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <Label 
-                                    Text="{Binding FullOrderline}"
-                                    />
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackLayout>
+
                 <StackLayout>
                     <Button Text="CONFIRM" FontSize="36" BackgroundColor="Blue" HorizontalOptions="FillAndExpand"  HeightRequest="80" Clicked="Button_Clicked"/>
                 </StackLayout>

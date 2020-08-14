@@ -11,6 +11,7 @@ namespace WaiterApp4
             InitializeComponent();
 
             MainPage = new MainPage();
+            //MainPage = new NavigationPage(new OrderPage());
         }
 
         protected override void OnStart()
